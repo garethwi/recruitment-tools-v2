@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\PeopleDataLabs;
 use App\Models\Prospect;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Carbon;
 use Livewire\Component;
 
 class ShowProspectList extends Component
@@ -139,6 +140,19 @@ class ShowProspectList extends Component
     protected function addExperience(array $experience): array
     {
         $return = [];
+        if (count($experience) >= 2) {
+            usort($experience, function ($a, $b) {
+                if ($a['is_primary'] === true && $b['is_primary'] !== true) {
+                    return -1;
+                }
+                $aDate = $this->initDate($a['start_date']);
+                $bDate = $this->initDate($b['start_date']);
+                if ($aDate < $bDate) {
+                    return 1;
+                }
+                return -1;
+            });
+        }
         foreach ($experience as $key => $job) {
             $return['experience_' . ($key + 1) . '_company_name'] = Arr::get($job, 'company.name', '');
             $return['experience_' . ($key + 1) . '_company_size'] = Arr::get($job, 'company.size', '');
@@ -156,5 +170,14 @@ class ShowProspectList extends Component
             $return['experience_' . ($key + 1) . '_is_primary'] = Arr::get($job, 'is_primary', '');
         }
         return $return;
+    }
+
+    protected function initDate($date)
+    {
+        if (strpos($date, '-') === false) {
+            $date .= '-01';
+        }
+        $date .= '-01';
+        return Carbon::createFromFormat('Y-m-d', $date);
     }
 }
