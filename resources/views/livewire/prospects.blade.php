@@ -19,10 +19,13 @@
                     </div>
                 </div>
                 <div class="relative flex items-start">
-                    <div class="flex items-center h-5">
+                    <div class="flex items-center text-sm text-gray-500">
                         <a href="{{ route('prospect-lists.create') }}"
-                           class="bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            New List
+                            class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="15" height="15">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            &nbsp;New List
                         </a>
                     </div>
                 </div>
@@ -55,19 +58,23 @@
                                 class="gridjs-td px-6 py-4 whitespace-no-wrap text-sm text-gray-500">{{ $prospect->name }}</td>
                             <td data-column-id="name"
                                 class="gridjs-td px-6 py-4 whitespace-no-wrap text-sm text-gray-500">
-                                <a href="{{ route('prospect-lists.edit', ['prospectList' => $prospect->id]) }}" class="bg-green-400 hover:bg-green-200 text-grey font-bold py-2 px-4 rounded inline-flex items-center">
+                                <a href="{{ route('prospect-lists.edit', ['prospectList' => $prospect->id]) }}"
+                                   class="hover:bg-green-200 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="15" height="15">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                                     </svg>
                                     &nbsp;edit
                                 </a>
-                                <a wire:click="delete('{{ $prospect->id }}')" class="bg-red-400 hover:bg-red-200 text-grey font-bold py-2 px-4 rounded inline-flex items-center">
+                                <a wire:click="delete('{{ $prospect->id }}')"
+
+                                    class="hover:bg-red-200 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="15" height="15">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                     </svg>
                                     &nbsp;delete
                                 </a>
-                                <a href="{{ route('prospect-lists.show', ['prospectList' => $prospect->id]) }}" class="bg-white hover:bg-grey-200 text-grey font-bold py-2 px-4 rounded inline-flex items-center">
+                                <a href="{{ route('prospect-lists.show', ['prospectList' => $prospect->id]) }}"
+                                   class="hover:bg-blue-200 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="15" height="15">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z" />
                                     </svg>
