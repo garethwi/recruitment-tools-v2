@@ -29,7 +29,9 @@ class ShowProspectList extends Component
 
     public function export()
     {
-        $profiles = PeopleDataLabs::whereIn('linkedin_url', $this->linkedInUrls)->get();
+        $profiles = PeopleDataLabs::whereStatus('success')
+            ->whereIn('linkedin_url', $this->linkedInUrls)
+            ->get();
         $csv = [];
         $first = true;
         foreach ($profiles as $profile) {

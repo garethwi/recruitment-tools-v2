@@ -24,7 +24,7 @@
     <div
         class="w-full sm:w-auto self-start sm:self-center flex flex-row sm:flex-none flex-no-wrap justify-between items-center">
         <a href="#" class="no-underline py-1">
-            <h1 class="font-bold text-lg tracking-widest">LOGO</h1>
+            <img class="w-40" alt="PreContactTool" src="/images/pct-logo_2x.png" />
         </a>
         <button id="menuBtn" class="hamburger block sm:hidden focus:outline-none" type="button" onclick="navToggle();">
             <span class="hamburger__top-bun"></span>
