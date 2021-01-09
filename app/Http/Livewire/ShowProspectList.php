@@ -174,10 +174,19 @@ class ShowProspectList extends Component
 
     protected function initDate($date)
     {
-        if (strpos($date, '-') === false) {
+        if (!$date) {
+            $date = '1990-01-01';
+        }
+        $elements = explode('-', $date);
+        if (count($elements) == 0) {
+            $date = '1990-01-01';
+        }
+        if (count($elements) == 1) {
+            $date .= '-01-01';
+        }
+        if (count($elements) == 2) {
             $date .= '-01';
         }
-        $date .= '-01';
         return Carbon::createFromFormat('Y-m-d', $date);
     }
 }
